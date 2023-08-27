@@ -62,7 +62,7 @@ class InvitationController extends Controller
         $invitation->refresh()->pass = $request->get('pass');
 
         return view('add_invitation', [
-            'invitations' => Invitation::where('is_used', false)->get(),
+            'invitations' => Invitation::where('is_used', false)->latest()->get(),
             'invitation' => $invitation,
         ]);
     }
