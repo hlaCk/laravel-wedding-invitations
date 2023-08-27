@@ -7,7 +7,7 @@
             <form method="post" action="{{ route('createInvitation') }}">
                 @csrf
                 <div class="form-group">
-                    <label class="label" for="pass">الرابط المميز:</label>
+                    <label class="label" for="pass">كلمة المرور:</label>
                     <input class="input" type="password" name="pass" required autofocus>
                 </div>
                 <div class="form-group">
