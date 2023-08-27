@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\InvitationOpened;
 use Illuminate\Http\Request;
 use App\Models\Invitation;
+use Illuminate\Mail\Mailable;
+use Illuminate\Mail\Mailables\Envelope;
+use Illuminate\Support\Facades\Mail;
 
 class InvitationController extends Controller
 {
@@ -17,6 +21,10 @@ class InvitationController extends Controller
         if( !$uniqueLink || !($invitation = Invitation::where('unique_link', $uniqueLink)->where('is_used', false)->first()) ) {
             return $uniqueLink && Invitation::where('unique_link', $uniqueLink)->count() ? redirect()->route('thx') : abort(404);
         }
+        $mail = new InvitationOpened($invitation);
+
+        Mail::to("somaxy@gmail.com", "SoMaxy")
+            ->send($mail);
 
         return view('invitation', compact('invitation'));
     }
