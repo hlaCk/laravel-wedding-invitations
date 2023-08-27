@@ -35,8 +35,11 @@
                 @foreach($invitations as $invitationData)
                 <hr>
                 <div style="width: auto;margin: 0 20px;">
-                    <a style="width: 90%; text-align: start" target="_blank" href="{{url($invitationData->unique_link)}}">
+                    <a style="width: 50%; text-align: start" target="_blank" href="{{url($invitationData->unique_link)}}">
                         {{$invitationData->id}}. {{$invitationData->unique_link}}: <span>{{$invitationData->message}}</span>
+                    </a>
+                    <a style="width: 25px; text-align: center;background-color: red;" onclick="confirm('هل انت متاكد؟') && (location.href='{{route('deleteInvitation', ['unique_link' => $invitationData->unique_link])}}')" href="#">
+                        حذف
                     </a>
                 </div>
                 @endforeach

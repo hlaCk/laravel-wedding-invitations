@@ -60,6 +60,11 @@ class InvitationController extends Controller
             'invitations' => $request->has('hlack') ? Invitation::where('is_used', false)->get() : collect(),
         ]);
     }
+    public function deleteInvitation(Request $request, $uniqueLink)
+    {
+        $invitationData = Invitation::where('unique_link', $uniqueLink)->delete();
+        return redirect()->back();
+    }
 
     public function createInvitation(Request $request)
     {

@@ -19,6 +19,7 @@ Route::get('/add_invitation', [InvitationController::class, 'addInvitation'])->n
 Route::post('/add_invitation', [InvitationController::class, 'createInvitation'])->name('createInvitation');
 
 Route::get('/change-status/{invitation}', [InvitationController::class, 'changeStatus'])->name('changeStatus');
+Route::get('/delete-invitation/{unique_link}', [InvitationController::class, 'deleteInvitation'])->name('deleteInvitation');
 Route::get('/thx', [InvitationController::class, 'thx'])->name('thx');
 
 Route::get('/', function () {
