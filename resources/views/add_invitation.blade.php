@@ -3,6 +3,11 @@
 @section('content')
     <div class="container" style="text-align: right">
         <div class="invitation-content" style="background-image: none">
+
+            @if($errors->any())
+                <pre>  {!! implode('', $errors->all('<div>:message</div>')) !!}</pre>
+            @endif
+
             <h1>إضافة دعوة جديدة</h1>
             <form method="post" action="{{ route('createInvitation') }}">
                 @csrf
