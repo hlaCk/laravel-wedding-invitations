@@ -29,7 +29,7 @@
     let c = 0;
     document.addEventListener('click', function(event) {
         if (event.target.classList.contains('invitation-content')) {
-            location.href = "https://www.google.com/maps?q=%D9%82%D8%A7%D8%B9%D8%A9+%D8%A7%D9%84%D8%A7%D9%85%D9%8A%D8%B1%D8%A9+%D9%84%D9%84%D8%A7%D8%AD%D8%AA%D9%81%D8%A7%D9%84%D8%A7%D8%AA%D8%8C+%D8%A7%D9%84%D8%AF%D8%A7%D8%A6%D8%B1%D9%8A+%D8%A7%D9%84%D8%AC%D9%86%D9%88%D8%A8%D9%8A-+%D9%85%D8%AE%D8%B1%D8%AC+25+%D9%82%D8%A8%D9%84+%D9%82%D8%B5%D8%B1+%D8%A7%D9%84%D9%81%D9%8A%D8%B5%D9%84%D8%8C+%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6&ftid=0x3e2f0fde20db06dd:0x2f173300e1d36e45&hl=ar-SA&gl=sa&coh=183438&entry=gps&lucs=,47074637,47071704&g_ep=CAISBjYuNzkuMxgAINeCAyoSLDQ3MDc0NjM3LDQ3MDcxNzA0QgJTQQ%3D%3D&g_st=iw";
+            location.href = "https://goo.gl/maps/QyGpo5GhWXkXVnjF8";
             return false;
         }
 
