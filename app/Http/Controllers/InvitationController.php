@@ -43,7 +43,9 @@ class InvitationController extends Controller
     // تنفيذ وظيفة لإضافة دعوة جديدة
     public function addInvitation(Request $request)
     {
-        return view('add_invitation');
+        return view('add_invitation', [
+            'invitations'=>Invitation::where('is_used', false)->get()
+        ]);
     }
 
     public function createInvitation(Request $request)
