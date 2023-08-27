@@ -4,7 +4,7 @@
 <div class="container">
     <div class="invitation-content" style="cursor: pointer;">
         <h1 class="hidden">دعوة زواج</h1>
-        <p class="text-sm">{{ $invitationData->message }}</p>
+        <h1 class="text-lg">{{ $invitationData->message }}</h1>
 
         <form class="Change-status hidden" method="post" action="{{ route('checkPassword', ['unique_link' => $invitationData->unique_link]) }}">
             @csrf
