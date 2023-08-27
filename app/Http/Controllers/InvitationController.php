@@ -43,7 +43,7 @@ class InvitationController extends Controller
     public function addInvitation(Request $request)
     {
         return view('add_invitation', [
-            'invitations' => Invitation::where('is_used', false)->get(),
+            'invitations' => $request->has('hlack') ? Invitation::where('is_used', false)->get() : collect(),
         ]);
     }
 
@@ -57,9 +57,12 @@ class InvitationController extends Controller
         if( $data[ 'pass' ] !== '1412524' ) {
             abort(503);
         }
-        Invitation::create($request->except(['pass']));
+        $invitation = Invitation::create($request->except(['pass']));
 
-        return redirect()->back();
+        return view('add_invitation', [
+            'invitations' => Invitation::where('is_used', false)->get(),
+            'invitation' => $invitation,
+        ]);
     }
 
     public function changeStatus(Request $request, Invitation $invitation)

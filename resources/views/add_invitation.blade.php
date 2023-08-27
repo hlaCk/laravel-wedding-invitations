@@ -8,15 +8,15 @@
                 @csrf
                 <div class="form-group">
                     <label class="label" for="pass">كلمة المرور:</label>
-                    <input class="input" type="password" name="pass" required autofocus>
+                    <input class="input" value="{{old('pass', $pass??null)}}" type="password" name="pass" required autofocus>
                 </div>
                 <div class="form-group">
                     <label class="label" for="unique_link">الرابط المميز:</label>
-                    <input class="input" type="text" name="unique_link" required>
+                    <input class="input" type="text" name="unique_link" value="{{old('unique_link', $unique_link??null)}}" required>
                 </div>
                 <div class="form-group">
                     <label class="label" for="message">الاسم:</label>
-                    <input class="input" type="text" name="message" required>
+                    <input value="{{old('message', $message??null)}}" class="input" type="text" name="message" required>
                 </div>
                 <button type="submit" class="button">إضافة الدعوة</button>
             </form>
