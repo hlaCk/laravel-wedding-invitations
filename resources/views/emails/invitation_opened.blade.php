@@ -1,5 +1,5 @@
 {{$invitation->message}}
 <br>
-{{now()}}
+{{now()->format("Y-m-d h:i:s a")}}
 <hr>
 @dump($invitation->toArray())
