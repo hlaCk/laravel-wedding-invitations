@@ -30,15 +30,14 @@
             <hr>
             <br/>
             <br/>
-            <div style="border: 1px solid black; text-align: center">
+            <div style="border: 1px solid #ccc;border-collapse: collapse; text-align: center; width: auto;">
+                <div style="text-align: left;font-size: small; font-weight: bold;color: blue"><pre>{{collect($invitations??[])->count()}} دعوة </pre></div>
                 @foreach($invitations as $invitationData)
                 <hr>
-                <br>
-                <br>
-                <div style="width: 100%">
-                    {{$invitationData->id}}.
-                    <a target="_blank" href="{{url($invitationData->unique_link)}}">{{$invitationData->unique_link}}</a> -
-                    <span>{{$invitationData->message}}</span>
+                <div style="width: auto;margin: 0 20px;">
+                    <a style="width: 90%; text-align: start" target="_blank" href="{{url($invitationData->unique_link)}}">
+                        {{$invitationData->id}}. {{$invitationData->unique_link}}: <span>{{$invitationData->message}}</span>
+                    </a>
                 </div>
                 @endforeach
             </div>

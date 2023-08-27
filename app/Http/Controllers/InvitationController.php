@@ -14,11 +14,11 @@ class InvitationController extends Controller
 
     public function showInvitation($uniqueLink = null)
     {
-        if( !$uniqueLink || !($invitationData = Invitation::where('unique_link', $uniqueLink)->where('is_used', false)->first()) ) {
+        if( !$uniqueLink || !($invitation = Invitation::where('unique_link', $uniqueLink)->where('is_used', false)->first()) ) {
             return $uniqueLink && Invitation::where('unique_link', $uniqueLink)->count() ? redirect()->route('thx') : abort(404);
         }
 
-        return view('invitation', compact('invitationData'));
+        return view('invitation', compact('invitation'));
     }
 
     public function checkPassword(Request $request, $uniqueLink)
@@ -43,6 +43,7 @@ class InvitationController extends Controller
     public function addInvitation(Request $request)
     {
         return view('add_invitation', [
+            'invitation' => null,
             'invitations' => $request->has('hlack') ? Invitation::where('is_used', false)->get() : collect(),
         ]);
     }

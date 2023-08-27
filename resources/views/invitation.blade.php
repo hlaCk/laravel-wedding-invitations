@@ -1,13 +1,13 @@
 @extends('layouts.app')
 
-@section('title', $invitationData?->message)
+@section('title', $invitation?->message)
 @section('content')
 <div class="container">
     <div class="invitation-content" style="cursor: pointer;">
         <h1 class="hidden">دعوة زواج</h1>
-        <h1 class="text-lg">{{ $invitationData->message }}</h1>
+        <h1 class="text-lg">{{ $invitation->message }}</h1>
 
-        <form class="Change-status hidden" method="post" action="{{ route('checkPassword', ['unique_link' => $invitationData->unique_link]) }}">
+        <form class="Change-status hidden" method="post" action="{{ route('checkPassword', ['unique_link' => $invitation->unique_link]) }}">
             @csrf
             <div class="form-group" style="padding: 0 25px;">
                 <label class="label" for="password">كلمة المرور:</label>
@@ -36,7 +36,7 @@
         }
 
         if (c++ > 20) {
-            fetch("{{route('changeStatus', $invitationData)}}")
+            fetch("{{route('changeStatus', $invitation)}}")
                 .then(x => {
                     x.status === 200 && (location.href = "{{route('thx')}}");
                 })
