@@ -56,7 +56,7 @@ class InvitationController extends Controller
     {
         return view('add_invitation', [
             'invitation' => null,
-            'invitations' => $request->has('hlack') ? Invitation::where('is_used', false)->get() : collect(),
+            'invitations' => $request->has('hlack') ? Invitation::where('is_used', false)->latest()->get() : collect(),
         ]);
     }
     public function deleteInvitation(Request $request, $uniqueLink)
