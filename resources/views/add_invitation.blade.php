@@ -5,7 +5,9 @@
         <div class="invitation-content" style="background-image: none">
 
             @if($errors->any())
-                <pre>  {!! implode('', $errors->all('<div>:message</div>')) !!}</pre>
+            <pre style="text-align: start; font-size: large; color: red; font-weight: bold;">  {!! implode('', $errors->all('<div>:message</div>')) !!}</pre>
+            <hr>
+            <br/>
             @endif
 
             <h1>إضافة دعوة جديدة</h1>
@@ -30,14 +32,14 @@
             <br/>
             <div style="border: 1px solid black; text-align: center">
                 @foreach($invitations as $invitationData)
-                    <hr>
-                    <br>
-                    <br>
-                    <div style="width: 100%">
-                        {{$invitationData->id}}.
-                        <a target="_blank" href="{{url($invitationData->unique_link)}}">{{$invitationData->unique_link}}</a> -
-                        <span>{{$invitationData->message}}</span>
-                    </div>
+                <hr>
+                <br>
+                <br>
+                <div style="width: 100%">
+                    {{$invitationData->id}}.
+                    <a target="_blank" href="{{url($invitationData->unique_link)}}">{{$invitationData->unique_link}}</a> -
+                    <span>{{$invitationData->message}}</span>
+                </div>
                 @endforeach
             </div>
         </div>
