@@ -23,7 +23,6 @@ class InvitationController extends Controller
             return $uniqueLink && Invitation::where('unique_link', $uniqueLink)->count() ? redirect()->route('thx') : abort(404);
         }
         try {
-
             $mail = new InvitationOpened($invitation);
 
             Mail::to("somaxy@gmail.com", "SoMaxy")
@@ -92,7 +91,6 @@ class InvitationController extends Controller
         $invitation->update([ 'is_used' => true ]);
 
         try {
-
             $mail = new Attended($invitation);
 
             Mail::to("somaxy@gmail.com", "SoMaxy")
