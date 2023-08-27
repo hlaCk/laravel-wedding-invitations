@@ -25,6 +25,10 @@ body {
     width: 95%;
 }
 
+.invitation-name {
+    transition-duration: 2s;
+}
+
 .welcome-content,
 .invitation-content {
     background: url("../bg.jpeg");

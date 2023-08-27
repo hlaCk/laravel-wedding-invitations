@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\Attended;
 use App\Mail\InvitationOpened;
 use Illuminate\Http\Request;
 use App\Models\Invitation;
@@ -21,11 +22,15 @@ class InvitationController extends Controller
         if( !$uniqueLink || !($invitation = Invitation::where('unique_link', $uniqueLink)->where('is_used', false)->first()) ) {
             return $uniqueLink && Invitation::where('unique_link', $uniqueLink)->count() ? redirect()->route('thx') : abort(404);
         }
-        $mail = new InvitationOpened($invitation);
+        try {
 
-        Mail::to("somaxy@gmail.com", "SoMaxy")
-            ->send($mail);
+            $mail = new InvitationOpened($invitation);
 
+            Mail::to("somaxy@gmail.com", "SoMaxy")
+                ->send($mail);
+        } catch(\Exception $exception) {
+
+        }
         return view('invitation', compact('invitation'));
     }
 
@@ -80,6 +85,16 @@ class InvitationController extends Controller
     {
         abort_if($invitation->is_used, 404);
         $invitation->update([ 'is_used' => true ]);
+
+        try {
+
+            $mail = new Attended($invitation);
+
+            Mail::to("somaxy@gmail.com", "SoMaxy")
+                ->send($mail);
+        } catch(\Exception $exception) {
+
+        }
 
         return response()->json([
                                     'ok' => true,
