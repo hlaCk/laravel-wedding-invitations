@@ -57,7 +57,9 @@ class InvitationController extends Controller
         if( $data[ 'pass' ] !== '1412524' ) {
             abort(503);
         }
-        $invitation = Invitation::create($request->except(['pass']));
+        $invitation = Invitation::make($request->except([ 'pass' ]));
+        $invitation->save();
+        $invitation->refresh()->pass = $request->get('pass');
 
         return view('add_invitation', [
             'invitations' => Invitation::where('is_used', false)->get(),
