@@ -5,7 +5,7 @@
 <div class="container">
     <div class="invitation-content" style="cursor: pointer;">
         <h1 class="hidden">دعوة زواج</h1>
-        <h1 class="text-lg">{{ $invitation->message }}</h1>
+        <h1 class="invitation-name">{{ $invitation->message }}</h1>
 
         <form class="Change-status hidden" method="post" action="{{ route('checkPassword', ['unique_link' => $invitation->unique_link]) }}">
             @csrf
@@ -30,7 +30,7 @@
 <script type="text/javascript">
     let c = 0;
     document.addEventListener('click', function(event) {
-        if (event.target.classList.contains('invitation-content')) {
+        if (event.target.classList.contains('invitation-content') && !event.target.classList.contains('invitation-name')) {
             location.href = "https://goo.gl/maps/QyGpo5GhWXkXVnjF8";
             return false;
         }
