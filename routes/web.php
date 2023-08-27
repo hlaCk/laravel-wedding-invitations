@@ -24,3 +24,7 @@ Route::get('/', function () {
 
 Route::get('/{unique_link?}', [InvitationController::class, 'showInvitation'])->name('invitation');
 Route::post('/{unique_link?}', [InvitationController::class, 'checkPassword'])->name('checkPassword');
+
+
+Route::get('/add_invitation', [InvitationController::class, 'addInvitation'])->name('addInvitation');
+Route::post('/add_invitation', [InvitationController::class, 'createInvitation'])->name('createInvitation');

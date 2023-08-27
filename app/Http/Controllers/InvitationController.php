@@ -43,6 +43,11 @@ class InvitationController extends Controller
     // تنفيذ وظيفة لإضافة دعوة جديدة
     public function addInvitation(Request $request)
     {
+        return view('add_invitation');
+    }
+
+    public function createInvitation(Request $request)
+    {
         $request->validate([
             'unique_link' => 'required|unique:invitations',
             'message' => 'required',

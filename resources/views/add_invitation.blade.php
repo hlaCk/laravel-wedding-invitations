@@ -4,7 +4,7 @@
 <div class="container">
     <div class="invitation-content">
         <h1>إضافة دعوة جديدة</h1>
-        <form method="post" action="{{ route('addInvitation') }}">
+        <form method="post" action="{{ route('createInvitation') }}">
             @csrf
             <div class="form-group">
                 <label class="label" for="unique_link">الرابط المميز:</label>
