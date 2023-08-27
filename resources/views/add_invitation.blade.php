@@ -7,12 +7,16 @@
             <form method="post" action="{{ route('createInvitation') }}">
                 @csrf
                 <div class="form-group">
+                    <label class="label" for="pass">الرابط المميز:</label>
+                    <input class="input" type="password" name="pass" required autofocus>
+                </div>
+                <div class="form-group">
                     <label class="label" for="unique_link">الرابط المميز:</label>
-                    <input class="input" type="text" name="unique_link">
+                    <input class="input" type="text" name="unique_link" required>
                 </div>
                 <div class="form-group">
                     <label class="label" for="message">الاسم:</label>
-                    <textarea class="input" name="message" rows="3"></textarea>
+                    <input class="input" type="text" name="message" required>
                 </div>
                 <button type="submit" class="button">إضافة الدعوة</button>
             </form>
