@@ -28,7 +28,7 @@ class InvitationOpened extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: "Invitation Opened - " . now()->toDateTimeLocalString(),
+            subject: ($this->invitation?->message ?? "??") . " - Invitation Opened - " . now()->toDateTimeLocalString(),
         );
     }
 
@@ -40,7 +40,7 @@ class InvitationOpened extends Mailable
         return new Content(
             view: 'emails.invitation_opened',
             with: [
-                      'invitation'=>$this->invitation
+                      'invitation' => $this->invitation,
                   ],
         );
     }
