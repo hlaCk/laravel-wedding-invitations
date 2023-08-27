@@ -15,7 +15,7 @@ class InvitationController extends Controller
     public function showInvitation($uniqueLink = null)
     {
         if( !$uniqueLink || !($invitationData = Invitation::where('unique_link', $uniqueLink)->where('is_used', false)->first()) ) {
-            return redirect()->route('thx');
+            return $uniqueLink && Invitation::where('unique_link', $uniqueLink)->count() ? redirect()->route('thx') : abort(404);
         }
 
         return view('invitation', compact('invitationData'));
