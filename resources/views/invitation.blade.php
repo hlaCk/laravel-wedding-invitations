@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+@section('title') {{$invitationData->message}} @endsection
 @section('content')
 <div class="container">
     <div class="invitation-content" style="cursor: pointer;">

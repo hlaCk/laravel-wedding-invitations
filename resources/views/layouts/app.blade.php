@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>دعوة زواج</title>
+    <title>دعوة زواج@hasSection('title') - @yield('title') @endsection</title>
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 
