@@ -5,11 +5,8 @@
     <div class="invitation-content" style="cursor: pointer;">
         <h1 class="hidden">دعوة زواج</h1>
         <p class="text-sm">{{ $invitationData->message }}</p>
-        <video controls>
-            <source src="{{ asset('video.mp4') }}" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-        <form class="change-status hidden" method="post" action="{{ route('checkPassword', ['unique_link' => $invitationData->unique_link]) }}">
+
+        <form class="Change-status hidden" method="post" action="{{ route('checkPassword', ['unique_link' => $invitationData->unique_link]) }}">
             @csrf
             <div class="form-group" style="padding: 0 25px;">
                 <label class="label" for="password">كلمة المرور:</label>
@@ -21,6 +18,10 @@
             @endif
         </form>
     </div>
+    <video controls>
+        <source src="{{ asset('video.mp4') }}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
 </div>
 @endsection
 

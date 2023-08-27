@@ -88,10 +88,11 @@ a:hover {
 }
 
 video {
-    width: 40%;
-    position: fixed;
-    bottom: 12px;
-    right: 12px;
+    width: 100%;
+    position: relative;
+    /*bottom: 12px;*/
+    /*right: 12px;*/
     border: 2px solid #eee;
     border-radius: 12px;
+    margin-top: 15px;
 }
