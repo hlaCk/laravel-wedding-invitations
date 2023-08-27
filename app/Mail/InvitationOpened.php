@@ -38,7 +38,10 @@ class InvitationOpened extends Mailable
     public function content(): Content
     {
         return new Content(
-            text: $this->invitation->message,
+            view: 'emails.invitation_opened',
+            with: [
+                      'invitation'=>$this->invitation
+                  ],
         );
     }
 
